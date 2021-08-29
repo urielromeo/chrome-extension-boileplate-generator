@@ -1,0 +1,34 @@
+@font-face {
+    font-family: Sora;
+    src: url(./dist/sora.ttf);
+}
+
+body {
+    width: 500px;
+    height: 200px;
+    min-width: 500px;
+    min-height: 200px;
+    margin: 0;
+}
+
+.container {
+    background-color: #F2DE62;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 0;
+    font-family: 'Sora';
+}
+
+p {
+    margin: 0;
+    font-family: 'Sora';
+}

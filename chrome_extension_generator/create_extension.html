@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="create_extension.css">
+    <script defer src="dist/js/jquery-3.6.0.min.js"></script>
+    <script defer src="dist/js/jszip.min.js"></script>
+    <script defer src="dist/js/jszip-utils.min.js"></script>
+    <script defer src="dist/js/FileSaver.min.js"></script>
+    <script defer src="create_extension.js"></script>
+    <title>Create Chrome Extension</title>
+</head>
+<body>
+    <div class="container">
+        <div class="leftSide">
+            <div class="header">
+                <p>Chrome Extension<br>Boilerplate Generator</p>
+                <div class="v3Badge">
+                    <span>v3</span>
+                </div>
+            </div>
+            <section class="sectionOne">
+                <p class="sectionHeader">1- Customize your extension</p>
+                <div class="inputSection">
+                    <input class="checkbox checked" type="checkbox" value="" id="popupCheckbox">
+                    <label class="input-label" for="popupCheckbox">
+                        Include popup.html and popup.js
+                    </label>
+                </div>
+                <div class="inputSection">
+                    <input class="checkbox" type="checkbox" value="" id="backgroundCheckbox">
+                    <label class="input-label" for="backgroundCheckbox">
+                        Include background.js
+                    </label>
+                </div>
+                <div class="inputSection">
+                    <input class="checkbox" type="checkbox" value="" id="contentScriptJSCheckbox">
+                    <label class="input-label" for="contentScriptCheckbox">
+                        Inject contentscript.js
+                    </label>
+                </div>
+                <div class="inputSection">
+                    <input class="checkbox" type="checkbox" value="" id="contentScriptCSSCheckbox">
+                    <label class="input-label" for="contentScriptCSSCheckbox">
+                        Inject contentscript.css
+                    </label>
+                </div>
+                <!-- <select multiple name="permissions" id="permissions-select" class="permissions-select">
+                    <option value="activeTab">activeTab</option>
+                    <option value="alarms">alarms</option>
+                    <option value="background">background</option>
+                    <option value="bookmarks">bookmarks</option>
+                    <option value="browsingData">browsingData</option>
+                    <option value="certificateProvider">certificateProvider</option>
+                    <option value="clipboardRead">clipboardRead</option>
+                    <option value="clipboardWrite">clipboardWrite</option>
+                    <option value="contentSettings">contentSettings</option>
+                    <option value="contextMenus">contextMenus</option>
+                    <option value="cookies">cookies</option>
+                    <option value="debugger">debugger</option>
+                    <option value="declarativeContent">declarativeContent</option>
+                    <option value="declarativeNetRequest">declarativeNetRequest</option>
+                    <option value="declarativeNetRequestFeedback">declarativeNetRequestFeedback</option>
+                    <option value="declarativeWebRequest">declarativeWebRequest</option>
+                    <option value="desktopCapture">desktopCapture</option>
+                    <option value="documentScan">documentScan</option>
+                    <option value="downloads">downloads</option>
+                    <option value="enterprise.deviceAttributes">enterprise.deviceAttributes</option>
+                    <option value="enterprise.hardwarePlatform">enterprise.hardwarePlatform</option>
+                    <option value="enterprise.networkingAttributes">enterprise.networkingAttributes</option>
+                    <option value="enterprise.platformKeys">enterprise.platformKeys</option>
+                    <option value="experimental">experimental</option>
+                    <option value="fileBrowserHandler">fileBrowserHandler</option>
+                    <option value="fileSystemProvider">fileSystemProvider</option>
+                    <option value="fontSettings">fontSettings</option>
+                    <option value="gcm">gcm</option>
+                    <option value="geolocation">geolocation</option>
+                    <option value="history">history</option>
+                    <option value="identity">identity</option>
+                    <option value="idle">idle</option>
+                    <option value="loginState">loginState</option>
+                    <option value="management">management</option>
+                    <option value="nativeMessaging">nativeMessaging</option>
+                    <option value="notifications">notifications</option>
+                    <option value="pageCapture">pageCapture</option>
+                    <option value="platformKeys">platformKeys</option>
+                    <option value="power">power</option>
+                    <option value="printerProvider">printerProvider</option>
+                    <option value="printing">printing</option>
+                    <option value="printingMetrics">printingMetrics</option>
+                    <option value="privacy">privacy</option>
+                    <option value="processes">processes</option>
+                    <option value="proxy">proxy</option>
+                    <option value="scripting">scripting</option>
+                    <option value="search">search</option>
+                    <option value="sessions">sessions</option>
+                    <option value="signedInDevices">signedInDevices</option>
+                    <option value="storage">storage</option>
+                    <option value="system.cpu">system.cpu</option>
+                    <option value="system.display">system.display</option>
+                    <option value="system.memory">system.memory</option>
+                    <option value="system.storage">system.storage</option>
+                    <option value="tabCapture">tabCapture</option>
+                    <option value="tabGroups">tabGroups</option>
+                    <option value="tabs">tabs</option>
+                    <option value="topSites">topSites</option>
+                    <option value="tts">tts</option>
+                    <option value="ttsEngine">ttsEngine</option>
+                    <option value="unlimitedStorage">unlimitedStorage</option>
+                    <option value="vpnProvider">vpnProvider</option>
+                    <option value="wallpaper">wallpaper</option>
+                    <option value="webNavigation">webNavigation</option>
+                    <option value="webRequest">webRequest</option>
+                    <option value="webRequestBlocking">webRequestBlocking</option>
+                </select>
+            </section> -->
+        </div>
+        <div class="rightSide">
+            <div class="header credits">
+                <p id="about">About</p>
+                <p id="closeCredits">Close</p>
+                <p class="creditsText">Extension made by <a target="_blank" href="http://uromeo.xyz">Uriel Romeo</a></p>
+                <p class="creditsText">Made with jQuery, jsZip, and FileSaver</p>
+            </div>
+            <section class="sectionTwo">
+                <p class="sectionHeader">2- Preview your manifest.json</p>
+                <div class="manifestPreview">
+                    <pre>
+{
+    "name": "Chrome extension generator",
+    "description": "Chrome extension boilerplate generator",
+    "version": "0.1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {}
+    },
+    "host_permissions": [ "<all_urls>" ],
+    "permissions": [
+        "alarms",
+        "storage",
+        "activeTab",
+        "scripting",
+        "tabs"
+    ]
+}
+</pre> 
+                </div>
+            </section>
+            <section class="sectionThree">
+                <p class="sectionHeader">3- Download your extension</p>
+                <a class="download" href="">get your custom boilerplate now!</a>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
